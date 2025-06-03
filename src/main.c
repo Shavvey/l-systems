@@ -4,7 +4,6 @@
 #define SCREEN_HEIGHT 500
 
 #define WINDOW_TITLE "l-systems"
-#define ASSETS_PATH "assets/"
 
 int main(void) {
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
