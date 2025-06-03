@@ -1,7 +1,7 @@
 #include "../include/raylib.h"
 
 #define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 450
+#define SCREEN_HEIGHT 500
 
 #define WINDOW_TITLE "l-systems"
 #define ASSETS_PATH "assets/"
@@ -10,8 +10,7 @@ int main(void) {
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
   SetTargetFPS(60);
 
-  Texture2D texture =
-      LoadTexture(ASSETS_PATH "test.png"); // Check README.md for how this works
+  Texture2D texture = LoadTexture(ASSETS_PATH "test.png");
 
   while (!WindowShouldClose()) {
     BeginDrawing();
@@ -29,8 +28,6 @@ int main(void) {
 
     EndDrawing();
   }
-
   CloseWindow();
-
   return 0;
 }
