@@ -1,4 +1,10 @@
+# precompiled c files
 *.o
-.DS_Store
 *.gch
+#macos stuff
+.DS_Store
+# ignore final exec
 lsys
+build
+
+assets/test.png
