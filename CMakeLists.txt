@@ -1,3 +1,4 @@
+# NOTE: adapted from - https://github.com/SasLuca/raylib-cmake-template/blob/master/CMakeLists.txt
 cmake_minimum_required(VERSION 3.5)
 project(l-systems C)
 set(CMAKE_C_STANDARD 99)
