@@ -16,14 +16,12 @@ int main(void) {
   print_tstream(&ts);
   ts = recurse(&LSYSTEM, &ts);
   print_tstream(&ts);
-  ts = recurse(&LSYSTEM, &ts);
-  print_tstream(&ts);
   // main game loop
   while (!WindowShouldClose()) {
-    BeginDrawing();
     ClearBackground(BLACK);
     Turtle t = make_turtle(DEF_XPOS, DEF_YPOS, DEF_COLOR);
-    draw_lineseg(&t);
+    BeginDrawing();
+    draw_tstream(&LSYSTEM.clist, &ts, &t);
     EndDrawing();
   }
   CloseWindow();

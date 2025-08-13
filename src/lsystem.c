@@ -59,3 +59,22 @@ TokenStream recurse(const LSystem *l, TokenStream *ts) {
   alist_free(ts);
   return nts;
 }
+
+static Codec find_codec(Token t, const CodecList *cl) {
+  for (size_t cs = 0; cs < cl->size; cs++) {
+    Codec c = cl->codecs[cs];
+    if (c.t == t)
+      return c;
+  }
+  eprintf("[ERROR]: Could not find codec!");
+  return (Codec){0};
+}
+
+void draw_tstream(const CodecList *cl, const TokenStream *ts, Turtle *t) {
+  // iterate through token stream
+  for (size_t s = 0; s < ts->size; s++) {
+    Token token = ts->items[s];
+    Codec c = find_codec(token, cl);
+    c.turtleAction(t);
+  }
+}

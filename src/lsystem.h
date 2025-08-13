@@ -47,4 +47,5 @@ void display_lsys(const LSystem *l);
 void print_tstream(const TokenStream *ts);
 TokenStream make_tsream(const LSystem *l);
 TokenStream recurse(const LSystem *l, TokenStream *ts);
+void draw_tstream(const CodecList *cl, const TokenStream *ts, Turtle *t);
 #endif  // INCLUDE_SRC_LSYSTEM_H_

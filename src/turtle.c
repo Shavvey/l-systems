@@ -1,5 +1,6 @@
 #include "turtle.h"
 #include "../include/raylib.h"
+#include "common.h"
 #include <math.h>
 
 Turtle make_turtle(int xpos, int ypos, Color color) {
@@ -19,6 +20,9 @@ void draw_lineseg(Turtle *turtle) {
   int startx = turtle->xpos;
   int starty = turtle->ypos;
   DrawLine(startx, starty, endx, endy, turtle->draw_color);
+  // update turtle position!
+  turtle->xpos = endx;
+  turtle->ypos = endy;
 }
 
 void reset(Turtle *turtle, History h) {
@@ -35,8 +39,7 @@ HStack make_hstack(size_t capacity) {
 }
 
 void push(HStack *hs, History hist) {
-  hs->items[hs->size - 1] = hist;
-  hs->size++;
+  alist_append(hs, hist);
 }
 
 History pop(HStack *hs) {

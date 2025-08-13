@@ -4,17 +4,17 @@
 #define RIGHT -45
 // BTREE CODEC FUNCTIONS
 // 0 token codec - draw line segment (should be ending leaf)
-void codec1(Turtle *t)  {
+static void codec1(Turtle *t)  {
   draw_lineseg(t); 
 }
 
 // 1 token codec - draw line segment (should be stem)
-void codec2(Turtle *t) {
+static void codec2(Turtle *t) {
   draw_lineseg(t);
 }
 
 // [ token codec - push history, turn left (+45) degrees
-void codec3(Turtle *t) {
+static void codec3(Turtle *t) {
   History h = {.xpos = t->xpos, .ypos = t->ypos, .angle = t->angle};
   push(&t->history, h);
   t->angle += LEFT;
