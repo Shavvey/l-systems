@@ -1,7 +1,7 @@
 #ifndef INCLUDE_SRC_COMMON_H_
 #define INCLUDE_SRC_COMMON_H_
-#define SCREEN_WIDTH 1200
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 1500
+#define SCREEN_HEIGHT 1000
 #define WINDOW_TITLE "l-systems"
 #include <stdlib.h>
 #include <stdio.h>
@@ -32,6 +32,16 @@ do {\
      alist_append((al), (new_items)[i]);             \
      i++;                                            \
   }                                                  \
+}while(0)
+
+#define alist_delete_at(al, idx) do {         \
+  if ((idx) < 0 || (idx) >= (al)->size) {     \
+    eprintf("[ERROR]: Out of range!");        \
+  }                                           \
+  for (size s = (idx); i < (al)->size; s++) { \
+       (al)->items[i] = (al)->items[i+1];     \
+  }                                           \
+  (al)->size--;                               \
 }while(0)
 
 #define alist_free(al) do {   \

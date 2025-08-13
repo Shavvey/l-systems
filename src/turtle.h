@@ -3,7 +3,7 @@
 #include "../include/raylib.h"
 #include "common.h"
 
-#define INIT_LSEG_LEN 5
+#define INIT_LSEG_LEN 2
 #define DEF_XPOS SCREEN_WIDTH / 2 
 #define DEF_YPOS SCREEN_HEIGHT
 #define DEF_COLOR GREEN
