@@ -2,6 +2,7 @@
 #define INCLUDE_SRC_TURTLE_H_
 #include "../include/raylib.h"
 #include "common.h"
+#include "hstack.h"
 
 #define DEF_LSEG_LEN 100
 #define DEF_XPOS SCREEN_WIDTH / 2 
@@ -13,6 +14,7 @@ typedef struct _Turtle {
   int ypos;
   int angle;
   Color draw_color;
+  HStack history;
 }Turtle;
 
 // API
