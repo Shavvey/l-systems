@@ -53,7 +53,6 @@ TokenStream recurse(const LSystem *l, TokenStream *ts) {
   for (size_t ts = 0; ts < token_size; ts++) {
     Token token = tokens[ts];
     const Token *new_tokens = apply_rule(&l->rlist, token);
-    printf("%c => %s\n", token, new_tokens);
     alist_append_many(&nts, new_tokens, strlen(new_tokens));
   }
   alist_free(ts);
