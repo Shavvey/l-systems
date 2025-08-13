@@ -1,7 +1,7 @@
 #ifndef INCLUDE_SRC_COMMON_H_
 #define INCLUDE_SRC_COMMON_H_
 #define SCREEN_WIDTH 1200
-#define SCREEN_HEIGHT 800
+#define SCREEN_HEIGHT 600
 #define WINDOW_TITLE "l-systems"
 #include <stdlib.h>
 #include <stdio.h>

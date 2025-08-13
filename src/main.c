@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 int main(void) {
-  SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+  // SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
   SetTargetFPS(60);
 
