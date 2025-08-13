@@ -1,19 +1,41 @@
 #ifndef INCLUDE_SRC_LSYSTEM_H_
 #define INCLUDE_SRC_LSYSTEM_H_
-#include "common.h"
 
+#include <stddef.h>
+#include "turtle.h"
+// for now, a token is really just a wrapper for an ASCII char...
+typedef char Token;
+
+// maps actions a the turtle will do with the given input token
+typedef struct _Codec {
+ Token t;
+ void (*turtleAction)(Turtle *t);
+}Codec;
+
+// lsystem needs a sized list to preform a linear search on
+typedef struct _CodecList {
+  const Codec *codecs;
+  size_t size;
+}CodecList;
+
+// transforms a single token into an array of many tokens
 typedef struct _Rule {
-  const char *input;
-  const char *output;
+  const Token input;
+  const Token *output;
 } Rule;
 
-typedef struct _LSystem {
-  const Rule *rules; // how to permute input
-  const char axiom; // starting condition of system
-}LSystem;
+// needed a sized list of rules for the lsystem
+typedef struct _RuleList {
+  const Rule *rules;
+  size_t size;
+} RuleList;
 
+typedef struct _LSystem {
+  Token axiom; // starting atomic to apply rules to
+  const RuleList rlist;
+  const CodecList clist;
+} LSystem;
 
 // API
-LSystem parse_system(const char *config_file);
-void apply_rule(LSystem *lsys, StringBuilder* input);
+void display_lsys(const LSystem *l);
 #endif  // INCLUDE_SRC_LSYSTEM_H_

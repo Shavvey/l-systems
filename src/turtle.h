@@ -34,4 +34,5 @@ void push(HStack *hs, History hist);
 History pop(HStack *hs);
 Turtle make_turtle(int xpos, int ypos, Color color);
 void draw_lineseg(Turtle *turtle);
+void reset(Turtle *turtle, History h);
 #endif  // INCLUDE_SRC_TURTLE_H_

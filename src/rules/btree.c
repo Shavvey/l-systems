@@ -1,0 +1,45 @@
+#include "../lsystem.h"
+#include "../turtle.h"
+#define LEFT 45
+#define RIGHT -45
+// BTREE CODEC FUNCTIONS
+// 0 token codec - draw line segment (should be ending leaf)
+void codec1(Turtle *t)  {
+  draw_lineseg(t); 
+}
+
+// 1 token codec - draw line segment (should be stem)
+void codec2(Turtle *t) {
+  draw_lineseg(t);
+}
+
+// [ token codec - push history, turn left (+45) degrees
+void codec3(Turtle *t) {
+  History h = {.xpos = t->xpos, .ypos = t->ypos, .angle = t->angle};
+  push(&t->history, h);
+  t->angle += LEFT;
+}
+
+// ] token codec - pop history, turn right  (-45) degrees
+void codec4(Turtle *t) {
+  History h = pop(&t->history);
+  reset(t, h);
+  t->angle += RIGHT;
+}
+
+// BTREE LSYSTEM RULES DECLARATION 
+// rules
+const static Rule r1 = {.input = '0', .output = "1[0]0"};
+const static Rule r2 = {.input = '1', .output = "11"};
+const static Rule rules[] = {r1, r2};
+const static RuleList rlist = {.rules = rules, .size = 2};
+
+// codecs
+const static Codec c1 = {.t = '0', .turtleAction = &codec1};
+const static Codec c2 = {.t = '1', .turtleAction = &codec2};
+const static Codec c3 = {.t = '[', .turtleAction = &codec3};
+const static Codec c4 = {.t = ']', .turtleAction = &codec4};
+const static Codec codecs[] = {c1, c2, c3, c4};
+
+const static CodecList clist = {.codecs = codecs, .size = 4};
+const LSystem LSYSTEM = {.axiom = '0', .rlist = rlist, .clist = clist};

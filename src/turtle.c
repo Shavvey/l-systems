@@ -3,11 +3,13 @@
 #include <math.h>
 
 Turtle make_turtle(int xpos, int ypos, Color color) {
-  Turtle t = {.xpos = xpos,
-              .ypos = ypos,
-              .angle = 90,
-              .history = make_hstack(1 << 8), // NOTE: figure out how to anticipate history size needed
-              .draw_color = color};
+  Turtle t = {
+      .xpos = xpos,
+      .ypos = ypos,
+      .angle = 90,
+      .history = make_hstack(
+          1 << 8), // NOTE: figure out how to anticipate history size needed
+      .draw_color = color};
   return t;
 }
 
@@ -17,6 +19,12 @@ void draw_lineseg(Turtle *turtle) {
   int startx = turtle->xpos;
   int starty = turtle->ypos;
   DrawLine(startx, starty, endx, endy, turtle->draw_color);
+}
+
+void reset(Turtle *turtle, History h) {
+  turtle->xpos = h.xpos;
+  turtle->ypos = h.ypos;
+  turtle->angle = h.angle;
 }
 
 HStack make_hstack(size_t capacity) {

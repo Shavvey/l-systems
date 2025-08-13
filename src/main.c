@@ -3,11 +3,15 @@
 #include "turtle.h"
 #include <stdlib.h>
 
+// needed to know which lsystem is currently implemented
+#include "lsystem.h"
+#include "rules/btree.h"
+
 int main(void) {
   // SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
   SetTargetFPS(60);
-
+  display_lsys(&LSYSTEM);
   // main game loop
   while (!WindowShouldClose()) {
     BeginDrawing();
