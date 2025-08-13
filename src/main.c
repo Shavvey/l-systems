@@ -1,5 +1,6 @@
 #include "../include/raylib.h"
 #include "common.h"
+#include "turtle.h"
 #include <stdlib.h>
 
 int main(void) {
@@ -10,9 +11,9 @@ int main(void) {
   // main game loop
   while (!WindowShouldClose()) {
     BeginDrawing();
-    // draw all the objects here!
     ClearBackground(BLACK);
-    DrawLine(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, RAYWHITE);
+    Turtle t = make_turtle(DEF_XPOS, DEF_YPOS, DEF_COLOR);
+    draw_lineseg(&t);
     EndDrawing();
   }
   CloseWindow();

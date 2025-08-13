@@ -2,10 +2,15 @@
 #include "../include/raylib.h"
 #include <math.h>
 
-void draw_linseg(Turtle *turtle) {
-  int endx = DEF_LSEG_LEN * cos((float) turtle->angle);
-  int endy = DEF_LSEG_LEN * sin((float) turtle->angle);
+Turtle make_turtle(int xpos, int ypos, Color color) {
+  Turtle t = {.xpos = xpos, .ypos = ypos, .angle = 90, .draw_color = color};
+  return t;
+}
+
+void draw_lineseg(Turtle *turtle) {
+  int endx = turtle->xpos - DEF_LSEG_LEN * cos((float) turtle->angle * PI / 180);
+  int endy = turtle->ypos - DEF_LSEG_LEN * sin((float) turtle->angle * PI / 180);
   int startx = turtle->xpos;
   int starty = turtle->ypos;
-  DrawLine(startx, starty, endx, endy,);
+  DrawLine(startx, starty, endx, endy, turtle->draw_color);
 }
