@@ -8,6 +8,7 @@ Turtle make_turtle(int xpos, int ypos, Color color) {
       .xpos = xpos,
       .ypos = ypos,
       .angle = 90,
+      .seg_length = INIT_LSEG_LEN,
       .history = make_hstack(
           1 << 8), // NOTE: figure out how to anticipate history size needed
       .draw_color = color};
@@ -15,8 +16,8 @@ Turtle make_turtle(int xpos, int ypos, Color color) {
 }
 
 void draw_lineseg(Turtle *turtle) {
-  int endx = turtle->xpos - DEF_LSEG_LEN * cos((float)turtle->angle * PI / 180);
-  int endy = turtle->ypos - DEF_LSEG_LEN * sin((float)turtle->angle * PI / 180);
+  int endx = turtle->xpos - turtle->seg_length * cos((float)turtle->angle * PI / 180);
+  int endy = turtle->ypos - turtle->seg_length * sin((float)turtle->angle * PI / 180);
   int startx = turtle->xpos;
   int starty = turtle->ypos;
   DrawLine(startx, starty, endx, endy, turtle->draw_color);

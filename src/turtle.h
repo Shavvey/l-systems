@@ -3,10 +3,10 @@
 #include "../include/raylib.h"
 #include "common.h"
 
-#define DEF_LSEG_LEN 100
+#define INIT_LSEG_LEN 50
 #define DEF_XPOS SCREEN_WIDTH / 2 
 #define DEF_YPOS SCREEN_HEIGHT
-#define DEF_COLOR RAYWHITE
+#define DEF_COLOR GREEN
 
 typedef struct _History {
   int xpos;
@@ -25,6 +25,7 @@ typedef struct _Turtle {
   int ypos;
   int angle;
   Color draw_color;
+  int seg_length;
   HStack history; // record previous configs of turtle
 }Turtle;
 
