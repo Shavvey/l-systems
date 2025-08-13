@@ -5,7 +5,6 @@
 HStack make_hstack(size_t capacity) {
   HStack hs = {.capacity = capacity,
                .size = 0,
-               .top_idx = 0,
                .items = (History *)malloc(sizeof(History) * capacity)};
   return hs;
 }
@@ -13,7 +12,6 @@ HStack make_hstack(size_t capacity) {
 void push(HStack *hs, History hist) {
   hs->items[hs->size] = hist;
   hs->size++;
-  hs->top_idx++;
 }
 
 History pop(HStack *hs) {

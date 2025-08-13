@@ -12,7 +12,6 @@ typedef struct _HStack {
   History *items;
   size_t capacity;
   size_t size;
-  size_t top_idx;
 } HStack;
 
 // API
