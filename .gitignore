@@ -9,3 +9,6 @@ build
 
 assets/test.png
 .cache
+
+# some examples for references don't check into VC
+rules/examples/*
