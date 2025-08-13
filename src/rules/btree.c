@@ -31,8 +31,10 @@ void codec4(Turtle *t) {
 // rules
 const static Rule r1 = {.input = '0', .output = "1[0]0"};
 const static Rule r2 = {.input = '1', .output = "11"};
-const static Rule rules[] = {r1, r2};
-const static RuleList rlist = {.rules = rules, .size = 2};
+const static Rule r3 = {.input = '[', .output = "["};
+const static Rule r4 = {.input = ']', .output = "]"};
+const static Rule rules[] = {r1, r2, r3, r4};
+const static RuleList rlist = {.rules = rules, .size = 4};
 
 // codecs
 const static Codec c1 = {.t = '0', .turtleAction = &codec1};

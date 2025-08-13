@@ -10,13 +10,13 @@ typedef char Token;
 typedef struct _Codec {
  Token t;
  void (*turtleAction)(Turtle *t);
-}Codec;
+} Codec;
 
 // lsystem needs a sized list to preform a linear search on
 typedef struct _CodecList {
   const Codec *codecs;
   size_t size;
-}CodecList;
+} CodecList;
 
 // transforms a single token into an array of many tokens
 typedef struct _Rule {
@@ -36,6 +36,15 @@ typedef struct _LSystem {
   const CodecList clist;
 } LSystem;
 
+typedef struct _TokenStream {
+  Token *items;
+  size_t size;
+  size_t capacity;
+} TokenStream;
+
 // API
 void display_lsys(const LSystem *l);
+void print_tstream(const TokenStream *ts);
+TokenStream make_tsream(const LSystem *l);
+TokenStream recurse(const LSystem *l, TokenStream *ts);
 #endif  // INCLUDE_SRC_LSYSTEM_H_

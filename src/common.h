@@ -26,17 +26,18 @@ do {\
   (al)->items[(al)->size++] = (item);                                        \
 }while(0)
 
+#define alist_append_many(al, new_items, size) do {  \
+  size_t i = 0;                                      \
+  while(i < (size)) {                                \
+     alist_append((al), (new_items)[i]);             \
+     i++;                                            \
+  }                                                  \
+}while(0)
+
 #define alist_free(al) do {   \
  (al)->size = 0;              \
  (al)->capacity = 0;          \
  free((al)->items);           \
 }while(0)
-
-//TYPE DECLARATIONS
-typedef struct _StringBuilder {
-  size_t capacity;
-  size_t size;
-  char *items;
-} StringBuilder;
 
 #endif  // INCLUDE_SRC_COMMON_H_

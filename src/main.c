@@ -12,6 +12,12 @@ int main(void) {
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
   SetTargetFPS(60);
   display_lsys(&LSYSTEM);
+  TokenStream ts = make_tsream(&LSYSTEM);
+  print_tstream(&ts);
+  ts = recurse(&LSYSTEM, &ts);
+  print_tstream(&ts);
+  ts = recurse(&LSYSTEM, &ts);
+  print_tstream(&ts);
   // main game loop
   while (!WindowShouldClose()) {
     BeginDrawing();
