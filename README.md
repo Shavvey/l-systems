@@ -35,7 +35,7 @@ Here are the parts of the L-System you must implement:
 - **Rules**: Creates the grammar of the L-System. Here, you must provide rules about how each token
   can be transformed into another sequence of tokens. (**NOTE**: every token must have a rule, even if it just
   consists of an identity [ => [).
-- **Axiom**: The base token that we be recursively expanded.
+- **Axiom**: The base token that will be recursively expanded by applying the rules.
 - **Codec**: Actions the turtle (drawer) must preform for each token encountered in the input.
 
 Using this system, the binary tree L-System can be implemented
