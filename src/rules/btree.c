@@ -42,6 +42,6 @@ const static Codec c2 = {.t = '1', .turtleAction = &codec2};
 const static Codec c3 = {.t = '[', .turtleAction = &codec3};
 const static Codec c4 = {.t = ']', .turtleAction = &codec4};
 const static Codec codecs[] = {c1, c2, c3, c4};
-
 const static CodecList clist = {.codecs = codecs, .size = 4};
+
 const LSystem LSYSTEM = {.axiom = '0', .rlist = rlist, .clist = clist};

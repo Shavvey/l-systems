@@ -7,10 +7,10 @@
 #include <stdio.h>
 #include <assert.h>
 #define eprintf(...) do { fprintf(stderr, __VA_ARGS__); }while(0)
-#define UNIMPLEMENTED(...) \
-do {\
-  printf("%s:%d UNIMPLEMENTED %s", __FILE__, __LINE__, __VA_ARGS__);\
-  exit(1);\
+#define UNIMPLEMENTED(...)                                           \
+do {                                                                 \
+  printf("%s:%d UNIMPLEMENTED %s", __FILE__, __LINE__, __VA_ARGS__); \
+  exit(1);                                                           \
 }while(0)
 
 #define AL_RESIZE_INC 1 << 3

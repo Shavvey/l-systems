@@ -17,14 +17,14 @@ final binary.
 
 ## Making An L-System
 
-L-Systems include of form of grammar that describes how the characters/tokens inside the
-langauge are transfomred to a larger series of tokens (e.g. 1 => 11). For example, the L-System
+L-Systems uses grammar that describes how the characters/tokens inside the
+language are transformed to a larger series of tokens. For example, the L-System
 for a binary tree looks like this:
 
 ```
-vars : 0, 1
+vars : 0, 1, [, ]
 axiom : 0
-rules : (1 = 11), (0 = 1[0]0)
+rules : (1 = 11), (0 = 1[0]0), ([ = [), (] = ])
 ```
 
 To implement your own L-System, you need to include declarations that will
@@ -86,11 +86,11 @@ const static Codec c2 = {.t = '1', .turtleAction = &codec2};
 const static Codec c3 = {.t = '[', .turtleAction = &codec3};
 const static Codec c4 = {.t = ']', .turtleAction = &codec4};
 const static Codec codecs[] = {c1, c2, c3, c4};
-
 const static CodecList clist = {.codecs = codecs, .size = 4};
+
 const LSystem LSYSTEM = {.axiom = '0', .rlist = rlist, .clist = clist};
 ```
 
 The very last part (`const LSystem LSYSTEM = {.axiom = '0', .rlist = rlist, .clist = clist};`) is important
-because this is where we finally initialize a external variable which is first declared iniside
+because this is where we finally initialize a external variable which is first declared inside
 [lsystem.h](src/lsystem.h).
