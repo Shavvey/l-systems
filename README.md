@@ -2,20 +2,23 @@
 
 ## Description
 
-[L-Systems](https://en.wikipedia.org/wiki/L-system) is a type of grammar
-to recursively generate fractal-like structures.
+[L-Systems](https://en.wikipedia.org/wiki/L-system) are a type of grammar
+that recursively expands to larger expressions which often encode some fractal-like structure.
+To display this generated L-System, the project uses a very simple
+implementation of a [turtle graphics](https://en.wikipedia.org/wiki/Turtle_graphics).
 
 ![Binary tree l-system](images/example.webp "Binary Tree L-System")
 
 ## Building the Project
 
-A build script called `build.sh` is provided that will clone `raylib`
-and compile the project. Afterwards, just run `run.sh` to run the project.
+The project depends upon the [raylib](https://github.com/raysan5/raylib). The build script [build.sh](build.sh)
+should take care of cloning this library. Afterwards, you can run the script [run.sh](run.sh) to compile and exec the
+final binary.
 
 ## Making An L-System
 
-L-Systems include of form of grammar that describes of characters of tokens inside the
-langauge are transfomred to a larger series of tokens. For example, the L-System
+L-Systems include of form of grammar that describes how the characters/tokens inside the
+langauge are transfomred to a larger series of tokens (e.g. 1 => 11). For example, the L-System
 for a binary tree looks like this:
 
 ```
@@ -29,11 +32,14 @@ form the L-System.
 
 Here are the parts of the L-System you must implement:
 
-- **Rules**:
-- **Axiom**:
-- **Codec**: Actions the turtle (drawer) must preform for each token encounter in input stream
+- **Rules**: Creates the grammar of the L-System. Here, you must provide rules about how each token
+  can be transformed into another sequence of tokens. (**NOTE**: every token must have a rule, even if it just
+  consists of an identity [ => [).
+- **Axiom**: The base token that we be recursively expanded.
+- **Codec**: Actions the turtle (drawer) must preform for each token encountered in the input.
 
-Using this system, the binary tree L-System can be implemented with the following declarations inside `btree.c`:
+Using this system, the binary tree L-System can be implemented
+with the following declarations inside [btree.c](src/rules/btree.c):
 
 ```c
 #include "../lsystem.h"
@@ -85,15 +91,6 @@ const static CodecList clist = {.codecs = codecs, .size = 4};
 const LSystem LSYSTEM = {.axiom = '0', .rlist = rlist, .clist = clist};
 ```
 
-After creating the declarations, you can define an external var that allows other source files
-to interact with the globally defined `LSYSTEM`, `btree.h` does this inside `src/rules`.
-
-```c
-#ifndef INCLUDE_RULES_BTREE_H_
-#define INCLUDE_RULES_BTREE_H_
-#include "../lsystem.h"
-
-extern const LSystem LSYSTEM;
-
-#endif  // INCLUDE_RULES_BTREE_H_
-```
+The very last part (`const LSystem LSYSTEM = {.axiom = '0', .rlist = rlist, .clist = clist};`) is important
+because this is where we finally initialize a external variable which is first declared iniside
+[lsystem.h](src/lsystem.h).

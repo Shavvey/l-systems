@@ -1,4 +1,0 @@
-vars : 0, 1
-const : [, ]
-axiom : 0
-rules : (1 = 11), (0 = 1[0]0)

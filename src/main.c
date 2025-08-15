@@ -5,7 +5,6 @@
 
 // needed to know which lsystem is currently implemented
 #include "lsystem.h"
-#include "rules/btree.h"
 
 int main(void) {
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
