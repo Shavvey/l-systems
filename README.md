@@ -11,8 +11,8 @@ implementation of a [turtle graphics](https://en.wikipedia.org/wiki/Turtle_graph
 
 ## Building the Project
 
-The project depends upon the [raylib](https://github.com/raysan5/raylib). The build script [build.sh](build.sh)
-should take care of cloning this library. Afterwards, you can run the script [run.sh](run.sh) to compile and exec the
+The project depends upon [raylib](https://github.com/raysan5/raylib). The build script [build.sh](build.sh)
+should take care of cloning this library. Afterwards, you can run the script [run.sh](run.sh) to compile and execute the
 final binary.
 
 ## Making An L-System
