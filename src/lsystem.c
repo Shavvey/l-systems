@@ -22,7 +22,7 @@ void print_tstream(const TokenStream *ts) {
   printf("\n");
 }
 
-TokenStream make_tsream(const LSystem *l) {
+TokenStream make_tstream(const LSystem *l) {
   const int AXIOM_LEN = 1;
   TokenStream ts = {.capacity = AXIOM_LEN,
                     .items = (Token *)malloc(sizeof(Token) * AXIOM_LEN),
