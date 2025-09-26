@@ -11,7 +11,7 @@ int main(void) {
   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
   SetTargetFPS(60);
   display_lsys(&LSYSTEM);
-  TokenStream ts = make_tsream(&LSYSTEM);
+  TokenStream ts = make_tstream(&LSYSTEM);
   // main game loop
   while (!WindowShouldClose()) {
     ClearBackground(BLACK);
