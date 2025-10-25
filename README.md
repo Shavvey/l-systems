@@ -5,7 +5,7 @@
 [L-Systems](https://en.wikipedia.org/wiki/L-system) are a type of grammar
 that recursively expands to larger expressions which often encode some fractal-like structure.
 To display this generated L-System, the project uses a very simple
-implementation of a [turtle graphics](https://en.wikipedia.org/wiki/Turtle_graphics).
+implementation of [turtle graphics](https://en.wikipedia.org/wiki/Turtle_graphics).
 
 ![Binary tree l-system](images/example.webp "Binary Tree L-System")
 
